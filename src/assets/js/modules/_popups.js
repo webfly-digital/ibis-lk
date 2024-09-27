@@ -1,5 +1,5 @@
 export class Popup {
-    constructor (name) {
+    constructor(name) {
         this.openedClass = 'opened'
         this.noscrollClass = 'data-noscroll'
         this.overlayClass = 'data-not-overlay'
@@ -10,14 +10,14 @@ export class Popup {
         this.opener = document.querySelector(`[data-opener="${this.target}"]`)
         this.toggler = document.querySelector(`[data-toggler="${this.target}"]`)
         this.popup = document.querySelector(`[data-popup="${this.target}"]`)
-        this.closer = document.querySelector(`[data-closer="${this.target}"]`)
+        this.closers = document.querySelectorAll(`[data-closer="${this.target}"]`)
         this.overlay = document.querySelector('.overlay')
 
         this.initControllers()
-    }    
+    }
 
     togglePopup(event) {
-		this.popup.classList.toggle(this.openedClass)
+        this.popup.classList.toggle(this.openedClass)
 
         if (this.popup.hasAttribute(this.noscrollClass)) {
             this.toggleNoscrollBody(true)
@@ -26,12 +26,12 @@ export class Popup {
         if (!this.popup.hasAttribute(this.overlayClass)) {
             this.overlay.classList.toggle(this.openedClass)
         }
-        
-		this.updateControllers()
-	}
+
+        this.updateControllers()
+    }
 
     openPopup(event) {
-		this.popup.classList.add(this.openedClass)
+        this.popup.classList.add(this.openedClass)
 
         if (this.popup.hasAttribute(this.noscrollClass)) {
             this.toggleNoscrollBody(true)
@@ -40,12 +40,12 @@ export class Popup {
         if (!this.popup.hasAttribute(this.overlayClass)) {
             this.overlay.classList.add(this.openedClass)
         }
-        
-		this.updateControllers()
-	}
+
+        this.updateControllers()
+    }
 
     closePopup(event) {
-		this.popup.classList.remove(this.openedClass)
+        this.popup.classList.remove(this.openedClass)
         console.log(1)
         if (document.body.classList.contains('noscroll')) {
             this.toggleNoscrollBody()
@@ -55,8 +55,8 @@ export class Popup {
             this.overlay.classList.remove(this.openedClass)
         }
 
-		this.updateControllers()
-	}
+        this.updateControllers()
+    }
 
     toggleNoscrollBody() {
         if (document.body.classList.contains('noscroll')) {
@@ -68,20 +68,20 @@ export class Popup {
 
     // чек контроллеров
     updateControllers() {
-		if (this.popup.classList.contains(this.openedClass)) {
+        if (this.popup.classList.contains(this.openedClass)) {
             if (this.opener) {
                 this.opener.classList.add(this.openedClass)
             } else if (this.toggler) {
                 this.toggler.classList.add(this.openedClass)
             }
-		} else {
-			if (this.opener) {
+        } else {
+            if (this.opener) {
                 this.opener.classList.remove(this.openedClass)
             } else if (this.toggler) {
                 this.toggler.classList.remove(this.openedClass)
             }
-		}
-	}
+        }
+    }
 
     // инициализация контроллеров
     initControllers() {
@@ -93,7 +93,7 @@ export class Popup {
                 document.addEventListener('click', (event) => {
                     event.stopImmediatePropagation()
                     let clickInside = event.composedPath().includes(this.popup)
-        
+
                     if (!clickInside) {
                         this.closePopup(event)
                     }
@@ -108,18 +108,18 @@ export class Popup {
             })
         }
 
-        if (this.closer) {
-            this.closer.addEventListener('click', (e) => {
+        if (this.closers.length) {
+            this.closers.forEach(x => x.addEventListener('click', (e) => {
                 e.stopPropagation()
                 this.closePopup()
-            })
+            }))
         }
     }
 
     // глобальные бинды
     // пример: openPopup_xx()
     bindGlobalControls() {
-		window[`closePopup_${this.target}`] = this.closePopup.bind(this)
-		window[`openPopup_${this.target}`] = this.openPopup.bind(this)
-	}
+        window[`closePopup_${this.target}`] = this.closePopup.bind(this)
+        window[`openPopup_${this.target}`] = this.openPopup.bind(this)
+    }
 }
