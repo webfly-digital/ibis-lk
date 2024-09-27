@@ -1,0 +1,98 @@
+---
+layout: default
+title: index
+---
+
+<main class="main">
+    <div class="new-layout">
+        <aside class="new-aside" data-popup="aside">
+            <a href="" class="new-aside-logo">
+                <img src="./assets/img/svg/logo.svg" alt="">
+            </a>
+            <div class="new-aside-body">
+                <p class="subtitle-m bold">Личный кабинет студента</p>
+                <nav class="text-l">
+                    <span data-closer="aside">Профиль студента</span>
+                    <a href="profile-education.html">Освоение образовательной программы</a>
+                    <a href="profile-library.html">Электронно-библиотечная система</a>
+                    <a href="profile-portfolio.html">Формирование портфолио</a>
+                    <hr>
+                    <a href="profile-programm.html">Образовательная программа</a>
+                    <a href="">Расписание</a>
+                    <hr>
+                    <a class="text-s grey" href="">Выйти</a>
+                </nav>
+            </div>
+            <div class="new-aside-foot">
+                <p class="text-l">© 2024</p>
+                <p class="text-l">Разработка сайта</p>
+            </div>
+        </aside>
+        <div class="new-content">
+            <div class="new-content-inner">
+                <div class="side-opener text-s" data-opener="aside">Назад</div>
+                <div class="profile-head">
+                    <img src="assets/img/png/avatar-big.png" alt="">
+                    <p class="subtitle-m bold">Иванова Мария Сергеевна</p>
+                </div>
+                <div class="profile-body">
+                    <dl class="profile-info text-l">
+                        <dt class="semi">E-mail</dt>
+                        <dd>skwor36rus@yandex.ru</dd>
+                        <dt class="semi">Факультет</dt>
+                        <dd>Факультет Бизнеса и информационных систем</dd>
+                        <dt class="semi">Курс обучения</dt>
+                        <dd>2 курс</dd>
+                        <dt class="semi">Год поступления</dt>
+                        <dd>2023 год</dd>
+                        <dt class="semi">Образование</dt>
+                        <dd>Высшее, Воронежский Государственный Педагогический Институт, факультет Иностранных языков</dd>
+                        <dt class="semi">Шифр группы</dt>
+                        <dd>М-2-1о-з</dd>
+                        <dt class="semi">Направление</dt>
+                        <dd>38.03.02 Менеджмент</dd>
+                        <dt class="semi">Профиль</dt>
+                        <dd>Менеджмент организаций</dd>
+                        <dt class="semi">Дата рождения</dt>
+                        <dd>25 сентября 1989 год</dd>
+                    </dl>
+                    <hr>
+                    <article>
+                        <p class="subtitle-s bold">Немного о себе</p>
+                        <p class="text-l">Очень хорошая девочка</p>
+                    </article>
+                    <hr>
+                    <div class="profile-docs">
+                        <p class="subtitle-s bold">Достижения</p>
+                        <div class="profile-docs-list">
+                            <a href="assets/img/png/doc-1.png" class="glightbox">
+                                <img src="assets/img/png/doc-1.png" alt="">
+                            </a>
+                            <a href="assets/img/png/doc-2.png" class="glightbox">
+                                <img src="assets/img/png/doc-2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="popup centered" data-popup="lk-login">
+    <i data-closer="lk-login"></i>
+    <p class="subtitle-m bold">Личный кабинет студента</p>
+    <div class="popup-body">
+        <label>
+            <input class="text-l" type="text" placeholder="ID студента">
+            <a class="text-s grey" href="">Узнать свой ID</a>
+        </label>
+        <label>
+            <input class="text-l" type="password" placeholder="Пароль">
+            <a class="text-s grey" href="">Забыл пароль</a>
+        </label>
+        <!-- для бэка -->
+        <!-- <button class="button button-middle button-yellow text-l full-w">Войти</button> -->
+        <!-- для фронта -->
+        <a href="profile-main.html" class="button button-middle button-yellow text-l full-w">Войти</a>
+    </div>
+</div>

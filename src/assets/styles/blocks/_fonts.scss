@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+[data-opener],
+[data-closer] {
+    cursor: pointer;
+}
+
+[class*=subtitle-],
+[class*=text-] {
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.grey {
+
+    &,
+    &>* {
+        color: #707070;
+    }
+}
+
+.semi {
+
+    &,
+    &>* {
+        font-weight: 600 !important;
+    }
+}
+
+.bold {
+
+    &,
+    &>* {
+        font-weight: 700 !important;
+    }
+}
+
+.subtitle-m {
+
+    &,
+    &>* {
+        font-size: 24px;
+    }
+}
+
+.subtitle-s {
+
+    &,
+    &>* {
+        font-size: 20px;
+    }
+}
+
+.text-l {
+
+    &,
+    &>* {
+        font-size: 16px;
+    }
+}
+
+.text-m {
+
+    &,
+    &>* {
+        font-size: 14px;
+    }
+}
+
+.text-s {
+
+    &,
+    &>* {
+        font-size: 12px;
+    }
+}
