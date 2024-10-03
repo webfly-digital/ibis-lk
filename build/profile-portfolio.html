@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/style.css">    <title>index</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+        </div>
+    </header>    
+    <main class="main">
+        <div class="new-layout">
+            <aside class="new-aside" data-popup="aside">
+                <a href="" class="new-aside-logo">
+                    <img src="./assets/img/svg/logo.svg" alt="">
+                </a>
+                <div class="new-aside-body">
+                    <p class="subtitle-m bold">Личный кабинет студента</p>
+                    <nav class="text-l">
+                        <a href="profile-main.html">Профиль студента</a>
+                        <a href="profile-education.html">Освоение образовательной программы</a>
+                        <a href="profile-library.html">Электронно-библиотечная система</a>
+                        <span data-closer="aside">Формирование портфолио</span>
+                        <hr>
+                        <a href="profile-programm.html">Образовательная программа</a>
+                        <a href="">Расписание</a>
+                        <hr>
+                        <a class="text-s grey" href="">Выйти</a>
+                    </nav>
+                </div>
+                <div class="new-aside-foot">
+                    <p class="text-l">© 2024</p>
+                    <p class="text-l">Разработка сайта</p>
+                </div>
+            </aside>
+            <div class="new-content">
+                <div class="new-content-inner">
+                    <div class="link-back text-s" data-opener="aside">Назад</div>
+                    <div class="profile-head">
+                        <p class="subtitle-m bold">Формирование портфолио</p>
+                    </div>
+                    <div class="profile-body">
+                        <div class="profile-portfolio">
+                            <div class="profile-portfolio-head">
+                                <label>
+                                    <input name="PERSONAL_PHOTO_del" type="checkbox">
+                                </label>
+                                <figure>
+                                    <!-- когда фото загружается появляется картинка с путем -->
+                                    <img src="" alt="" class="hidden">
+                                    <label>
+                                        <p class="text-s">Загрузить фото</p>
+                                        <input type="file" name="PERSONAL_PHOTO" hidden accept="image/png, image/gif, image/jpeg">
+                                    </label>
+                                </figure>
+                                <input class="name-input subtitle-m bold" type="text" placeholder="Имя Фамилия Отчество">
+                            </div>
+                            <div class="profile-portfolio-body">
+                                <dl class="text-l">
+                                    <dt class="semi">E-mail</dt>
+                                    <dd>
+                                        <input type="text" class="input" placeholder="email@yandex.ru">
+                                    </dd>
+                                    <dt class="semi">Факультет</dt>
+                                    <dd>
+                                        <select class="ezdd">
+                                            <option value="" data-placeholder>Выберите ваш факультет</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="semi">Курс обучения</dt>
+                                    <dd>
+                                        <select class="ezdd">
+                                            <option value="" data-placeholder>Выберите ваш курс обучения</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="semi">Год поступления</dt>
+                                    <dd>
+                                        <select class="ezdd">
+                                            <option value="2024">2024</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="semi">Образование</dt>
+                                    <dd>
+                                        <input type="text" class="input" placeholder="Уровень (высшее, среднее), Название учебного заведения">
+                                    </dd>
+                                    <dt class="semi">Шифр группы</dt>
+                                    <dd>
+                                        <input type="text" class="input" placeholder="Название группы">
+                                    </dd>
+                                    <dt class="semi">Направление</dt>
+                                    <dd>
+                                        <select class="ezdd">
+                                            <option value="" data-placeholder>Выберите ваше направление</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="semi">Профиль</dt>
+                                    <dd>
+                                        <select class="ezdd">
+                                            <option value="" data-placeholder>Выберите ваш профиль</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="semi">Дата рождения</dt>
+                                    <dd>
+                                        <input type="text" class="input date-input" placeholder="__.__.____">
+                                    </dd>
+                                </dl>
+                                <hr>
+                                <article>
+                                    <p class="subtitle-s bold">Немного о себе</p>
+                                    <label class="textarea">
+                                        <textarea placeholder="Расскажите о себе"></textarea>
+                                    </label>
+                                </article>
+                                <hr>
+                                <div class="justify">
+                                    <p class="subtitle-s bold">Достижения</p>
+                                    <label class="upload">
+                                        <p class="text-l">Загрузить файл</p>
+                                        <!-- <input type="file" hidden multiple> -->
+                                    </label>
+                                </div>
+                                <div class="profile-docs-list">
+                                    <div class="dropzone"></div>
+                                    <!-- <a href="assets/img/png/doc-1.png" class="glightbox">
+                                        <img src="assets/img/png/doc-1.png" alt="">
+                                    </a> -->
+                                </div>
+                                <div class="button button-middle button-yellow text-l">Сохранить</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="popup centered" data-popup="lk-login">
+        <i data-closer="lk-login"></i>
+        <p class="subtitle-m bold">Личный кабинет студента</p>
+        <div class="popup-body">
+            <label>
+                <input class="text-l" type="text" placeholder="ID студента">
+                <a class="text-s grey" href="">Узнать свой ID</a>
+            </label>
+            <label>
+                <input class="text-l" type="password" placeholder="Пароль">
+                <a class="text-s grey" href="">Забыл пароль</a>
+            </label>
+            <!-- для бэка -->
+            <!-- <button class="button button-middle button-yellow text-l full-w">Войти</button> -->
+            <!-- для фронта -->
+            <a href="profile-main.html" class="button button-middle button-yellow text-l full-w">Войти</a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <footer>
+        <div class="container">
+        </div>
+    </footer>    <script src="assets/js/main.js"></script></body>
+</html>

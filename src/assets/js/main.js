@@ -57,6 +57,7 @@ const initIMask = () => {
 }
 
 const initDropzone = () => {
+
 	let dropzones = document.querySelectorAll('.dropzone'),
 		uploadBtn = document.querySelector('.upload'),
 		loadedFilesInput = document.querySelector('[name*=UF_PROGRESS_FILE]'),
