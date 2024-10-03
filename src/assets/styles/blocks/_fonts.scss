@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
+    src: url('../fonts/OpenSans-Medium.woff2') format('woff2');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -24,14 +24,15 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+    src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2');
     font-weight: 700;
     font-style: italic;
     font-display: swap;
 }
 
 body {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 [data-opener],
@@ -57,7 +58,7 @@ body {
 
     &,
     &>* {
-        font-weight: 600 !important;
+        font-weight: 500 !important;
     }
 }
 
@@ -65,7 +66,7 @@ body {
 
     &,
     &>* {
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 }
 

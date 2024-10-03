@@ -67,9 +67,13 @@
             flex-direction: column;
             gap: 24px;
 
-            .active {
+            .selected {
                 color: #2062AF;
                 cursor: default;
+
+                @include min-m {
+                    pointer-events: none;
+                }
             }
 
             hr {
@@ -101,11 +105,29 @@
     }
 }
 
+.new-layout:has(.login_filler) {
+    .new-aside {
+        transform: translateX(0) !important;
+    }
+}
+
 .new-content {
     background-color: #EFF3F7;
     height: 100%;
     display: block;
     min-height: 100vh;
+
+    .login_filler {
+        height: 100vh;
+        width: calc(100%);
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+    }
 
     &-inner {
         max-width: 1000px;
@@ -198,7 +220,13 @@
             &-list {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 8px;
+                // gap: 8px;
+                margin-bottom: 24px;
+
+                .glightbox {
+                    margin-right: 8px;
+                    margin-bottom: 8px;
+                }
 
                 @include max-m {
                     display: grid;
@@ -216,6 +244,105 @@
 
                     @include max-m {
                         height: unset;
+                    }
+
+                    figure {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.3);
+                            opacity: 0;
+
+                            transition: all .2s ease;
+                        }
+
+                        i.delete {
+                            position: absolute;
+                            top: 50%;
+                            left: 70%;
+                            transform: translate(-50%, -50%);
+                            z-index: 60;
+                            display: block;
+
+                            width: 64px;
+                            height: 64px !important;
+                            padding: 16px;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 50%;
+                            color: transparent;
+
+                            font-size: 0;
+
+                            opacity: 0;
+                            transition: all .2s ease;
+
+                            &:after {
+                                content: "";
+                                width: 32px;
+                                height: 32px;
+                                display: block;
+                                @include mask(url(../img/svg/delete.svg));
+                                background-color: white;
+                            }
+
+                            &:hover {
+                                box-shadow: 0 0 0 1px white inset;
+                                transform: translate(-50%, -50%) scale(1.1);
+                            }
+                        }
+
+                        i.open {
+                            position: absolute;
+                            top: 50%;
+                            left: 30%;
+                            transform: translate(-50%, -50%);
+                            z-index: 60;
+                            display: block;
+
+                            width: 64px;
+                            height: 64px !important;
+                            padding: 16px;
+                            background-color: rgba(255, 255, 255, 0.5);
+                            border-radius: 50%;
+                            color: transparent;
+
+                            font-size: 0;
+
+                            opacity: 0;
+                            transition: all .2s ease;
+
+                            &:after {
+                                content: "";
+                                width: 32px;
+                                height: 32px;
+                                display: block;
+                                @include mask(url(../img/icon/fullscreen.svg));
+                                background-color: white;
+                            }
+
+                            &:hover {
+                                box-shadow: 0 0 0 1px white inset;
+                                transform: translate(-50%, -50%) scale(1.1);
+                            }
+                        }
+
+                        &:hover {
+
+                            &:before,
+                            i.delete,
+                            i.open {
+                                opacity: 1;
+                            }
+                        }
                     }
 
                     img {
@@ -264,12 +391,41 @@
             gap: 40px;
 
             &-head {
+                position: relative;
                 display: flex;
                 align-items: center;
                 gap: 24px;
 
                 @include max-m {
                     flex-direction: column;
+                }
+
+                >label {
+                    position: absolute;
+                    top: 16px;
+                    left: 60px;
+                    transform: translateX(-50%);
+                    width: 20px;
+                    height: 20px;
+                    z-index: 50;
+                    display: block;
+                    @include mask(url(../img/icon/close-thin.svg));
+                    background-color: #fff;
+
+                    transition: all .2s ease;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    @include max-m {
+                        left: 50%;
+                    }
+
+                    input {
+                        width: 0;
+                        height: 0;
+                        visibility: hidden;
+                        overflow: hidden;
+                    }
                 }
 
                 figure {
@@ -316,29 +472,68 @@
                         height: 100%;
                         display: block;
                         object-fit: cover;
+
+                        &.hidden {
+                            width: 0;
+                            height: 0;
+                            visibility: hidden;
+                            overflow: hidden;
+                        }
                     }
 
-                    &:has(img) {
+                    &:has(img:not(.hidden)) {
                         label {
                             pointer-events: none;
                             opacity: 0;
-                        }
-
-                        &:hover {
-                            &:before {
-                                opacity: 1;
-                            }
-
-                            label {
-                                pointer-events: all;
-                                opacity: 1;
-                                color: #fff;
-                            }
                         }
                     }
 
                     &:has(label:hover) {
                         box-shadow: 0 0 0 1px #2062AF inset;
+                    }
+                }
+
+                @media (hover:hover) {
+                    &:has(figure img:not(.hidden)) {
+
+                        &:has(figure:hover),
+                        &:has(>label:hover) {
+                            >label {
+                                opacity: 1;
+                                pointer-events: all;
+                            }
+
+                            figure {
+                                &:before {
+                                    opacity: 1;
+                                }
+
+                                label {
+                                    pointer-events: all;
+                                    opacity: 1;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @media (hover: none) {
+                    >label {
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+
+                    figure {
+                        &:before {
+                            opacity: 1;
+                        }
+
+                        label {
+                            pointer-events: all !important;
+                            opacity: 1 !important;
+                            color: #fff !important;
+                        }
                     }
                 }
 
@@ -528,6 +723,7 @@
     .label {}
 }
 
+.link-back,
 .side-opener {
     color: #2062AF;
 
@@ -543,11 +739,19 @@
 
     &:before {
         content: "";
-        height: 5px;
-        aspect-ratio: 65 / 50;
+        height: 20px;
+        aspect-ratio: 1 / 1;
         display: block;
-        @include mask(url(../img/svg/arrows-mini.svg));
+        @include mask(url(../img/svg/arrow-back.svg));
         background-color: currentColor;
+    }
+
+    +.new-aside-body {
+        margin-top: 40px;
+    }
+
+    &:has(+.new-aside-body) {
+        margin-top: 20px;
     }
 }
 
@@ -935,6 +1139,28 @@
     }
 }
 
+[name=USER_LOGIN],
+[name=USER_PASSWORD] {
+    display: block !important;
+
+    width: 100% !important;
+    height: 48px !important;
+    padding: 12px 12px 12px 18px !important;
+    border-radius: 4px !important;
+    color: #333;
+    text-overflow: ellipsis;
+
+    transition: all .2s ease;
+
+    font-size: 16px !important;
+
+    &:hover {
+        &::placeholder {
+            color: #999999 !important;
+        }
+    }
+}
+
 .goverlay {
     background-color: rgba(0, 0, 0, 0.3) !important;
 }
@@ -1063,6 +1289,116 @@
             .dz-remove,
             &:before {
                 opacity: 1;
+            }
+        }
+    }
+}
+
+.bx-authform {
+    .bx-title {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.2;
+        font-family: 'Open Sans';
+        margin-bottom: 16px;
+    }
+
+    .bx-authform-formgroup-container {
+        margin-bottom: 16px;
+    }
+
+    .bx-authform-label-container {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.2;
+        font-family: 'Open Sans';
+        margin-bottom: 4px;
+    }
+
+    .bx-authform-link-container {
+        font-weight: 400 !important;
+        font-size: 16px;
+        color: #2062AF;
+        font-family: 'Open Sans';
+
+        a b {
+            font-weight: 400 !important;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .bx-filter-param-label {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+
+        input {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        &:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 0 1px #999999 inset;
+            transition: all .2s ease;
+        }
+
+        &:after {
+            content: "";
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            z-index: 1;
+
+            @include mask(url(../img/icon/check.svg));
+            background-color: #333;
+            opacity: 0;
+            transition: all .2s ease;
+        }
+
+        span {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #707070;
+            align-self: center;
+
+            transition: all .2s ease;
+        }
+
+        &:hover {
+            &:before {
+                box-shadow: 0 0 0 1px #333 inset;
+            }
+
+            span {
+                color: #333;
+            }
+        }
+
+        &:has(input:checked) {
+            &:before {
+                box-shadow: 0 0 0 1px transparent inset;
+                background-color: #FFD300;
+            }
+
+            &:after {
+                opacity: 1;
+            }
+
+            span {
+                color: #333;
             }
         }
     }

@@ -111,6 +111,7 @@ export class Popup {
         if (this.closers.length) {
             this.closers.forEach(x => x.addEventListener('click', (e) => {
                 e.stopPropagation()
+                e.preventDefault()
                 this.closePopup()
             }))
         }

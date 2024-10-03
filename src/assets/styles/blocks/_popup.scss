@@ -37,6 +37,10 @@
     pointer-events: none;
     transition: all .2s ease;
 
+    >.subtitle-m {
+        padding-right: 40px;
+    }
+
     [data-closer] {
         position: absolute;
         top: 24px;

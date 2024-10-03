@@ -30,19 +30,22 @@ title: index
         </aside>
         <div class="new-content">
             <div class="new-content-inner">
-                <div class="side-opener text-s" data-opener="aside">Назад</div>
+                <div class="link-back text-s" data-opener="aside">Назад</div>
                 <div class="profile-head">
                     <p class="subtitle-m bold">Формирование портфолио</p>
                 </div>
                 <div class="profile-body">
                     <div class="profile-portfolio">
                         <div class="profile-portfolio-head">
+                            <label>
+                                <input name="PERSONAL_PHOTO_del" type="checkbox">
+                            </label>
                             <figure>
                                 <!-- когда фото загружается появляется картинка с путем -->
-                                <!-- <img src="assets/img/png/avatar-big.png" alt=""> -->
+                                <img src="" alt="" class="hidden">
                                 <label>
                                     <p class="text-s">Загрузить фото</p>
-                                    <input type="file" hidden accept="image/png, image/gif, image/jpeg">
+                                    <input type="file" name="PERSONAL_PHOTO" hidden accept="image/png, image/gif, image/jpeg">
                                 </label>
                             </figure>
                             <input class="name-input subtitle-m bold" type="text" placeholder="Имя Фамилия Отчество">
@@ -140,6 +143,7 @@ title: index
         </div>
     </div>
 </main>
+
 <div class="popup centered" data-popup="lk-login">
     <i data-closer="lk-login"></i>
     <p class="subtitle-m bold">Личный кабинет студента</p>
