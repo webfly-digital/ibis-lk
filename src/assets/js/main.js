@@ -59,13 +59,12 @@ const initIMask = () => {
 const initDropzone = () => {
 	let dropzones = document.querySelectorAll('.dropzone'),
 		uploadBtn = document.querySelector('.upload'),
-		loadedFilesInput = document.querySelector('[name*=UF_PROGRESS_FILE]'),
 		glightboxes = document.querySelectorAll('.profile-docs-list .glightbox')
 
 	let dt = new DataTransfer()
 
 	const initDelete = () => {
-		
+
 		glightboxes = document.querySelectorAll('.profile-docs-list .glightbox')
 
 		glightboxes.length && glightboxes.forEach(glight => {
